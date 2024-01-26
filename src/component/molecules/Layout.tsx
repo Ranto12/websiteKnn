@@ -6,7 +6,7 @@ const Layout = () => {
   const { pathname } = useLocation();
   return (
     <>
-      <Flex justify="center">
+      <Flex justify="center" mb={50}>
         <Tabs defaultValue={pathname}>
           <Tabs.List>
             <NavLink to={"/"}>

@@ -3,7 +3,7 @@ import { MantineProvider } from "@mantine/core";
 import { theme } from "./theme";
 import { Layout } from "./component/molecules";
 import { Route, Routes } from "react-router-dom";
-import { Data, Login, Rekomendasi } from "./pages";
+import { Login } from "./pages";
 
 export default function App() {
   return (

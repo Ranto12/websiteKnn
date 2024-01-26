@@ -1,5 +1,6 @@
 import { createTheme } from "@mantine/core";
 
 export const theme = createTheme({
-  /* Put your mantine theme override here */
+  autoContrast: true,
+  luminanceThreshold: 0.3,
 });
