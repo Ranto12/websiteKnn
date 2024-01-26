@@ -1,4 +1,4 @@
-import { Flex, Group, Input, Pagination, Table } from "@mantine/core";
+import { Flex, Input, Pagination, Table } from "@mantine/core";
 const elements = [
   {
     name: "padi",
@@ -89,16 +89,7 @@ const Rekomendasi = () => {
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
         </Table>
-        <Pagination total={10} autoContrast color="lime.4" />
-        <Pagination.Root autoContrast color="blue" total={10}>
-          <Group gap={5} justify="center">
-            <Pagination.First />
-            <Pagination.Previous />
-            <Pagination.Items />
-            <Pagination.Next />
-            <Pagination.Last />
-          </Group>
-        </Pagination.Root>
+        <Pagination total={10} autoContrast color="lime.4"  />
       </Flex>
     </div>
   );
