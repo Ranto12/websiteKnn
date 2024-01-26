@@ -1,21 +1,23 @@
 import { Flex, Tabs, Text } from "@mantine/core";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { Data, Rekomendasi } from "../../pages";
 
 const Layout = () => {
+  const { pathname } = useLocation();
   return (
     <>
       <Flex justify="center">
-        <Tabs defaultValue="gallery" onClick={(e) => nav}>
+        <Tabs defaultValue={pathname}>
           <Tabs.List>
             <NavLink to={"/"}>
-              <Tabs.Tab value="gallery">
+              <Tabs.Tab value="/">
                 <Text size="xl" className="font-medium">
                   Rekomendasi
                 </Text>
               </Tabs.Tab>
             </NavLink>
             <NavLink to={"/data"}>
-              <Tabs.Tab value="messages">
+              <Tabs.Tab value="/data">
                 <Text size="xl" className="font-medium">
                   Data
                 </Text>
@@ -24,6 +26,10 @@ const Layout = () => {
           </Tabs.List>
         </Tabs>
       </Flex>
+      <Routes>
+        <Route path="/" element={<Rekomendasi />} />
+        <Route path="/data" element={<Data />} />
+      </Routes>
     </>
   );
 };
