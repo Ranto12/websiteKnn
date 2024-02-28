@@ -15,7 +15,7 @@ interface ITableProps {
     showHeadTable?: boolean,
   }
 
-const TableComponent = ({columns, data, onFetchData, rowClickHandler, searchData, showHeadTable,showPagination, totalData}:  ITableProps) => {      
+const TableComponent = ({columns, data}:  ITableProps) => {      
       const rows = data?.map((element, i) => (
         <Table.Tr className="font-medium" key={i}>
           {columns.map((_item) => (
