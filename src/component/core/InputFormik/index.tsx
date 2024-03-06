@@ -7,6 +7,7 @@ interface Props {
   placeholder?: string;
   className?: string;
   type?: string;
+  required?: boolean;
 }
 
 const InputFormik = ({
@@ -15,6 +16,7 @@ const InputFormik = ({
   placeholder,
   className,
   type,
+  required = false,
   ...rest
 }: Props) => {
   const [field] = useField(name);
@@ -24,6 +26,7 @@ const InputFormik = ({
       placeholder={placeholder}
       leftSection={leftSection}
       className={className}
+      required={required}
       {...field}
       {...rest}
     />

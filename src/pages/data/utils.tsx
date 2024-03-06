@@ -44,38 +44,38 @@ const elements = [
   const coloumntable = [
     {
       id: 'N',
-      label: 'N',
-      accesor: 'N',
+      header: 'N',
+      accessor: 'N',
     },
     {
       id: 'P',
-      label: 'P',
-      accesor: 'P',
+      header: 'P',
+      accessor: 'P',
     },
     {
       id: 'K',
-      label: 'K',
-      accesor: 'K',
+      header: 'K',
+      accessor: 'K',
     },
     {
       id: 'temperature',
-      label: 'temperature',
-      accesor: 'temperature',
+      header: 'temperature',
+      accessor: 'temperature',
     },
     {
       id: 'humidity',
-      label: 'humidity',
-      accesor: 'humidity',
+      header: 'humidity',
+      accessor: 'humidity',
     },
     {
       id: 'ph',
-      label: 'ph',
-      accesor: 'ph',
+      header: 'ph',
+      accessor: 'ph',
     },
     {
       id: 'rainfall',
-      label: 'rainfall',
-      accesor: 'rainfall',
+      header: 'rainfall',
+      accessor: 'rainfall',
     },
   ]
 
@@ -170,60 +170,6 @@ const elements = [
       "ph": 6.336253525,
       "rainfall": 221.2091958
     },
-    {
-      "N": 91,
-      "P": 53,
-      "K": 40,
-      "temperature": 26.52723513,
-      "humidity": 81.41753846,
-      "ph": 5.386167788,
-      "rainfall": 264.6148697
-    },
-    {
-      "N": 90,
-      "P": 46,
-      "K": 42,
-      "temperature": 23.97898217,
-      "humidity": 81.45061596,
-      "ph": 7.50283396,
-      "rainfall": 250.0832336
-    },
-    {
-      "N": 78,
-      "P": 58,
-      "K": 44,
-      "temperature": 26.80079604,
-      "humidity": 80.88684822,
-      "ph": 5.108681786,
-      "rainfall": 284.4364567
-    },
-    {
-      "N": 93,
-      "P": 56,
-      "K": 36,
-      "temperature": 24.01497622,
-      "humidity": 82.05687182,
-      "ph": 6.98435366,
-      "rainfall": 185.2773389
-    },
-    {
-      "N": 94,
-      "P": 50,
-      "K": 37,
-      "temperature": 25.66585205,
-      "humidity": 80.66385045,
-      "ph": 6.94801983,
-      "rainfall": 209.5869708
-    },
-    {
-      "N": 60,
-      "P": 48,
-      "K": 39,
-      "temperature": 24.28209415,
-      "rainfall": 209.5869708,
-      "ph": 7.042,
-      "humidity": 80.30025587,
-    }
   ]  
 
   export {elements, coloumntable, DataNew}

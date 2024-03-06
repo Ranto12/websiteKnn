@@ -1,10 +1,12 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Data } from "../pages";
 
 const RoutePage = () => {
   return (
     <>
-      <Route path="/data" element={<Data />} />
+      <Routes>
+        <Route path="/dataRekomendasi" element={<Data />} />
+      </Routes>
     </>
   );
 };

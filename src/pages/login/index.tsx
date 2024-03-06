@@ -11,10 +11,13 @@ import {
   IconDeviceMobile,
   IconLock,
   IconMail,
+  IconTrees,
   IconUser,
 } from "@tabler/icons-react";
 import { Form, FormikProvider, useFormik } from "formik";
 import { InputFormik } from "../../component/core";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [value, setValue] = useState("login");
@@ -22,13 +25,32 @@ const Login = () => {
     { value: "login", label: "Login" },
     { value: "register", label: "Register" },
   ];
+
+  const HandleLogin = async (data: any) => {
+    const url = 'http://localhost:5000/login'
+    try {
+      const result = await axios.post(url, data);
+      toast.success(result.data.message)
+      localStorage.setItem('token', result.data.token);
+    } catch (error: any) {
+      if (error.response) {
+        console.error('Gagal, respons data:', error.response.data);
+        console.error('Status code:', error.response.status);
+      } else if (error.request) {
+        console.error('Gagal, tidak ada respon dari server:', error.request);
+      } else {
+        console.error('Gagal:', error.message);
+      }
+    }
+  }
+
   const formik = useFormik({
     initialValues: {
       username: "",
       password: "",
     },
     onSubmit: (value) => {
-      console.log(value);
+      HandleLogin(value);
     },
   });
   const DataForm = [
@@ -36,10 +58,10 @@ const Login = () => {
       value: "login",
       data: [
         {
-          name: "email",
+          name: "username",
           icons: <IconUser />,
-          placholder: "Email",
-          type: "email",
+          placholder: "userName",
+          type: "text",
         },
         {
           name: "password",
@@ -95,11 +117,17 @@ const Login = () => {
           justify="center"
           align="center"
         >
+          <Flex direction="column" justify="center" align="center">
+            <IconTrees />
+            <Text size="xl" fw={600}>
+              {value === 'login'  ? 'Masuk' : 'Daftar'}
+            </Text>
+          </Flex>
           <SegmentedControl
+          size="md"
             data={data}
             value={value}
             onChange={setValue}
-            // onClick={(e: any) => navigate(e.target.value) }
           />
           <Box maw={500} mx="auto" w={500} px={10}>
             <Flex direction="column" gap="xl">
@@ -109,6 +137,7 @@ const Login = () => {
                   placeholder={_menu.placholder}
                   name={_menu.name}
                   type={_menu.type}
+                  required
                 />
               ))}
               <Group justify="center" mt="xl">
@@ -116,10 +145,10 @@ const Login = () => {
                     {value === 'login'  ? 'Masuk' : 'Daftar'}
                   </Button>
                 </Group>
-                <Text variant="text" fw={500}>
+                <Text className="cursor-pointer" hidden={value === 'register'} variant="text" onClick={() => setValue('register')} fw={400}>
                   Belum Punya Akun?
                   {"  "}
-                  <span>Daftar sekarang</span>
+                  <span className="text-green-500">Daftar sekarang</span>
                 </Text>
             </Flex>
           </Box>

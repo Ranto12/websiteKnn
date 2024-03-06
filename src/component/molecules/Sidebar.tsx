@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   IconBrandDatabricks,
   IconClipboardData,
@@ -6,7 +5,7 @@ import {
 } from "@tabler/icons-react";
 import { Box, Flex, NavLink } from "@mantine/core";
 import { IconTrees } from "@tabler/icons-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const data = [
   { icon: IconClipboardData, label: "Rekomendasi", href: "/" },
   {
@@ -19,14 +18,14 @@ const data = [
 ];
 
 const Sidebar = () => {
-  const [active, setActive] = useState(0);
-  const items = data.map((item, index) => (
-    <Link to={item.href} key={item.label} >
+  let { pathname }: any = useLocation();
+  console.log(pathname.split("/"), "ce");
+  const items = data.map((item) => (
+    <Link to={item.href} key={item.label}>
       <NavLink
-        active={index === active}
+        active={`/${pathname.split("/")[1]}` === item.href}
         label={item.label}
         leftSection={<item.icon size="1rem" stroke={1.5} />}
-        onClick={() => setActive(index)}
       />
     </Link>
   ));
