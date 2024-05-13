@@ -28,7 +28,7 @@ const TablePagination = ({
   const totalPage = Math.ceil(totalData / perPage);
 
   return (
-    <Flex align="center" justify="space-between" className='bg-gray-300 px-3'>
+    <Flex align="center" justify="space-between" className='bg-gray-300 px-3 rounded-md'>
       <Text
         className="text-neutral-40"
       >

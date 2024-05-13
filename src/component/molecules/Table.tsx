@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text } from '@mantine/core';
 import TablePagination from '../core/Pagination/Table';
+import LoadingData from './LoadingData';
 
 
 interface ITableProps {
@@ -123,7 +124,7 @@ const Table: React.FC<ITableProps> = ({
 
   return (
     <div className={`relative ${isLoading ? 'min-h-[100px]' : ''} ${classNameContainer}`}>
-      {/* {isLoading && <LoadingData />} */}
+      {isLoading && <LoadingData />}
       <table className="border border-neutral-30 border-separate overflow-hidden text-left border-spacing-0 bg-white w-full rounded-md">
         {showHeadTable && (
         <thead className="bg-neutral-20">

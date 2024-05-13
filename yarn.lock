@@ -1837,6 +1837,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jwt-decode@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "jwt-decode@npm:4.0.0"
+  checksum: de75bbf89220746c388cf6a7b71e56080437b77d2edb29bae1c2155048b02c6b8c59a3e5e8d6ccdfd54f0b8bda25226e491a4f1b55ac5f8da04cfbadec4e546c
+  languageName: node
+  linkType: hard
+
 "lilconfig@npm:^2.1.0":
   version: 2.1.0
   resolution: "lilconfig@npm:2.1.0"
@@ -3112,6 +3119,7 @@ __metadata:
     autoprefixer: "npm:^10.4.17"
     axios: "npm:^1.6.7"
     formik: "npm:^2.4.5"
+    jwt-decode: "npm:^4.0.0"
     postcss: "npm:^8.4.33"
     postcss-preset-mantine: "npm:1.12.3"
     postcss-simple-vars: "npm:^7.0.1"

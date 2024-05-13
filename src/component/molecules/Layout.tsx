@@ -4,10 +4,12 @@ import Sidebar from "./Sidebar";
 import { IconTrees, IconUserEdit } from "@tabler/icons-react";
 import RoutePage from "../../route";
 import { useNavigate } from "react-router-dom";
+import Token from "../../utils/token";
 
 const Layout = () => {
   const [opened, { toggle }] = useDisclosure();
   const navigate = useNavigate()
+  const {dataDecode}: any = Token();
   return (
     <AppShell
       header={{ height: 60 }}
@@ -35,8 +37,8 @@ const Layout = () => {
                 <IconUserEdit size={30} />
               </div>
               <Flex justify="center" align="center" direction={{ base: 'row', md: 'column' }}>
-                <Text fw="bolder" size="sm" className="hidden md:block">Enjel Violani</Text>
-                <Button onClick={() => navigate('/login')} variant="light" color="red">Logout</Button>
+                <Text fw="bolder" size="sm" className="hidden md:block">{dataDecode?.username}</Text>
+                <Button onClick={() => {localStorage.removeItem('token'), navigate('/login')}} variant="light" color="red">Logout</Button>
               </Flex>
               </Flex>
             </div>

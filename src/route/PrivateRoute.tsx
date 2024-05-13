@@ -1,9 +1,15 @@
-import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 
-const PrivateRoute = ({ element, ...rest }: any) => {
+const PrivateRoute = () => {
+  const token = localStorage.getItem('token');
+ 
+  return token ? <Outlet /> : <Navigate to="/login" />;
+};
+const PrivateRoutelastLogin = () => {
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token');
   const access = localStorage.getItem('token');
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!access) {
@@ -11,11 +17,8 @@ const PrivateRoute = ({ element, ...rest }: any) => {
     }
   }, [access, navigate]);
 
-  return (
-    <Routes>
-      <Route {...rest} element={access ? element : null} />;
-    </Routes>
-  )
+ 
+  return token ?  <Navigate to="/" /> : <Outlet />;
 };
 
-export default PrivateRoute;
+export {PrivateRoute, PrivateRoutelastLogin};

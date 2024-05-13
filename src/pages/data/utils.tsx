@@ -45,27 +45,22 @@ const elements = [
     {
       id: 'N',
       header: 'N',
-      accessor: 'N',
+      accessor: 'nitrogen',
     },
     {
       id: 'P',
       header: 'P',
-      accessor: 'P',
+      accessor: 'fosfor',
     },
     {
       id: 'K',
       header: 'K',
-      accessor: 'K',
+      accessor: 'kalium',
     },
     {
       id: 'temperature',
       header: 'temperature',
       accessor: 'temperature',
-    },
-    {
-      id: 'humidity',
-      header: 'humidity',
-      accessor: 'humidity',
     },
     {
       id: 'ph',
@@ -76,6 +71,11 @@ const elements = [
       id: 'rainfall',
       header: 'rainfall',
       accessor: 'rainfall',
+    },
+    {
+      id: 'nama_tanaman',
+      header: 'Tanaman',
+      accessor: 'nama_tanaman',
     },
   ]
 

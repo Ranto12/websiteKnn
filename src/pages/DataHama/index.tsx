@@ -11,7 +11,7 @@ const Data = () => {
   const [search, setSearch] = useState('');
 
   const fetchData = async (page: number, searchData: string = '') => {
-    const url = `http://localhost:5000/getAllDataRekomendasi?limit=10&offset=${page}&search=${searchData}`
+    const url = `http://localhost:5000/getAllDataHama?limit=10&offset=${page}&search=${searchData}`
     setLoading(true)
     try {
       const response = await axios.get(url, {

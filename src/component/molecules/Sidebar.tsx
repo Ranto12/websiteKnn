@@ -1,7 +1,7 @@
 import {
   IconBrandDatabricks,
   IconClipboardData,
-  IconSpider,
+  // IconSpider,
 } from "@tabler/icons-react";
 import { Box, Flex, NavLink } from "@mantine/core";
 import { IconTrees } from "@tabler/icons-react";
@@ -13,8 +13,8 @@ const data = [
     label: "Data Rekomendasi",
     href: "/dataRekomendasi",
   },
-  { icon: IconSpider, label: "Data Hama", href: "/dataHama" },
-  { icon: IconTrees, label: "Data Tanaman", href: "/dataTanamn" },
+  // { icon: IconSpider, label: "Data Hama", href: "/dataHama" },
+  { icon: IconTrees, label: "Data Tanaman", href: "/dataTanaman" },
 ];
 
 const Sidebar = () => {

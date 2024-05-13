@@ -8,7 +8,7 @@ import {
   Text,
 } from "@mantine/core";
 import {
-  IconDeviceMobile,
+  IconAddressBook,
   IconLock,
   IconMail,
   IconTrees,
@@ -18,9 +18,11 @@ import { Form, FormikProvider, useFormik } from "formik";
 import { InputFormik } from "../../component/core";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [value, setValue] = useState("login");
+  const navigate = useNavigate();
   const data = [
     { value: "login", label: "Login" },
     { value: "register", label: "Register" },
@@ -32,25 +34,33 @@ const Login = () => {
       const result = await axios.post(url, data);
       toast.success(result.data.message)
       localStorage.setItem('token', result.data.token);
+      navigate('/')
     } catch (error: any) {
-      if (error.response) {
-        console.error('Gagal, respons data:', error.response.data);
-        console.error('Status code:', error.response.status);
-      } else if (error.request) {
-        console.error('Gagal, tidak ada respon dari server:', error.request);
-      } else {
-        console.error('Gagal:', error.message);
-      }
+     toast.error(error.message)
+    }
+  }
+  const HandleRegistration = async (data: any) => {
+    const url = 'http://localhost:5000/register'
+    try {
+      const result = await axios.post(url, data);
+      toast.success(result.data.message)
+      navigate('/login')
+      setValue('login')
+    } catch (error: any) {
+     toast.error(error.message)
     }
   }
 
   const formik = useFormik({
     initialValues: {
-      username: "",
-      password: "",
+      username:'', password:'', confPassword:'', email:'', full_name:'', address:'',
     },
-    onSubmit: (value) => {
-      HandleLogin(value);
+    onSubmit: () => {
+      if (value === 'login') {
+        HandleLogin(formik.values);
+      } else {
+        HandleRegistration(formik.values)
+      }
     },
   });
   const DataForm = [
@@ -75,16 +85,16 @@ const Login = () => {
       value: "register",
       data: [
         {
-          name: "name",
+          name: "full_name",
           icons: <IconUser />,
           placholder: "Nama Lengkap",
           type: "text",
         },
         {
-          name: "hp",
-          icons: <IconDeviceMobile />,
-          placholder: "Nomor Handphone",
-          type: "number",
+          name: "username",
+          icons: <IconUser />,
+          placholder: "Username",
+          type: "text",
         },
         {
           name: "email",
@@ -103,6 +113,12 @@ const Login = () => {
           icons: <IconLock />,
           placholder: "Ulangi Password",
           type: "password",
+        },
+        {
+          name: "address",
+          icons: <IconAddressBook />,
+          placholder: "Alamat",
+          type: "text",
         },
       ],
     },
